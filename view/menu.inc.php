@@ -5,9 +5,9 @@ $setting = $setting_model->getSettingBy();
 ?>
 
 <style>
-.active-menu{
-    border-bottom: 3px solid #458ccc;
-}
+    .active-menu{
+        border-bottom: 3px solid #458ccc;
+    }
 </style>
 <div class="container" style="background: white; border-radius: 5px; margin-top: 50px;" >
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -17,89 +17,21 @@ $setting = $setting_model->getSettingBy();
         </button>
         
         <div class="navbar-collapse collapse" id="navbarSupportedContent" style="padding-top: 30px;">
-            <ul class="nav navbar-nav layout-menu">
-                
-            </ul>
-            <ul class="nav navbar-nav ml-auto layout-menu">
-                <li class="nav-item <?php if($menu == ''){ echo 'active-menu'; }?>">
-                    <a class="nav-link" href="index.php">
-                    <?php 
-                        if($lng == "TH"){
-                            echo "หน้าหลัก";
-                        }else{
-                            echo "HOME";
-                        } 
-                    ?>
-                    </a>
-                </li>
-                <li class="nav-item <?php if($menu == 'about'){ echo 'active-menu'; }?>">
-                    <a class="nav-link" href="about.php">
-                    <?php 
-                        if($lng == "TH"){
-                            echo "เกี่ยวกับเรา";
-                        }else{
-                            echo "ABOUT US";
-                        } 
-                    ?>
-                    </a>
-                </li>
-                <li class="nav-item <?php if($menu == 'service'){ echo 'active-menu'; }?>">
-                    <a class="nav-link" href="service.php">
-                    <?php 
-                        if($lng == "TH"){
-                            echo "บริการ";
-                        }else{
-                            echo "SERVICE";
-                        } 
-                    ?>
-                    </a>
-                </li>
-                <li class="nav-item <?php if($menu == 'project'){ echo 'active-menu'; }?>">
-                    <a class="nav-link" href="project.php">
-                    <?php 
-                        if($lng == "TH"){
-                            echo "โครงงาน";
-                        }else{
-                            echo "PROJECT";
-                        } 
-                    ?>
-                    </a>
-                </li>
-                <li class="nav-item <?php if($menu == 'certification'){ echo 'active-menu'; }?>">
-                    <a class="nav-link" href="certification.php">
-                    <?php 
-                        if($lng == "TH"){
-                            echo "การรับรอง";
-                        }else{
-                            echo "CERTIFICATION";
-                        } 
-                    ?>
-                    </a>
-                </li>
-                <li class="nav-item <?php if($menu == 'news'){ echo 'active-menu'; }?>">
-                    <a class="nav-link" href="news.php">
-                    <?php 
-                        if($lng == "TH"){
-                            echo "ข่าวสาร";
-                        }else{
-                            echo "NEWS & EVENT";
-                        } 
-                    ?>
-                    </a>
-                </li>
-                <li class="nav-item <?php if($menu == 'contact'){ echo 'active-menu'; }?>">
-                    <a class="nav-link" href="contact.php">
-                    <?php 
-                        if($lng == "TH"){
-                            echo "ติดต่อเรา";
-                        }else{
-                            echo "CONTACT US";
-                        } 
-                    ?>
-                    </a>
-                </li>
+
+            <div class="wrap-form-user" style="background: white; border-radius: 5px; margin-top: 50px;">
+                <form class="form-user wrap-flex noflex-M" method="post" action="https://www.ufacash.com/member/member/login_process">
+                    <input type="text" name="username" id="username" required="" placeholder="Username" value="" class="icon-input icon-user">
+                    <input type="password" name="secret_password" required="" id="secret_password" placeholder="รหัสผ่าน" value="" class="icon-input icon-pass">
+                    <button type="submit" id="btnLogin" title="เข้าระบบ" class="lsid-rounded-box" style="margin-right: 5px;padding-left: 5px;padding-right: 5px;display: inline-block;">เข้าระบบ</button>
+                    <button type="button" title="สมัครสมาชิก" class="lsid-rounded-box blue" onclick="PopupCenter('https://www.ufacash.com/member/member/register_new', 'myPop1',800,600);" href="javascript:void(0);" style="margin-right: 5px;padding-left: 5px;padding-right: 5px;display: inline-block;">สมัครสมาชิก</button>
+                    <button type="button" onclick="PopupCenter('https://www.ufacash.com/member/ucp/deposit', 'myPop1',800,600);" href="javascript:void(0);" title="ฝาก/ถอน" class="lsid-rounded-box yellow" style="padding-left: 28px;padding-right: 28px;display: inline-block;">ฝาก/ถอน</button>
+                    <button type="button" onclick="PopupCenter('https://www.ufacash.com/member/member/forget_password/', 'myPop1',800,600);" href="javascript:void(0);" title="ลืมรหัสผ่าน" class="lsid-rounded-box" style="padding-left: 28px;padding-right: 28px;display: inline-block;"><small>ลืมรหัสผ่าน</small></button>
+                </form>
+
+            </div>
             
-            </ul>
+
+
         </div>
     </nav>
 </div>
@@ -108,8 +40,8 @@ $setting = $setting_model->getSettingBy();
 <script>
 	function setLanguage(lng){
 		$.post( "controls/setLanguage.php", { lng: lng })
-			.done(function( data ) {
-                window.location.reload();
-		});
-	}
+     .done(function( data ) {
+        window.location.reload();
+    });
+ }
 </script>
